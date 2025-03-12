@@ -1,0 +1,14 @@
+input:focus{
+    background-color: yellow;
+    color: blue;
+}
+input:checked{
+    transform: scale(2);
+    
+}
+input:invalid{
+    border-color: red;
+}
+input:valid{
+    border-color: green;
+}

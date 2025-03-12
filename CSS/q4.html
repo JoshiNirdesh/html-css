@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Nested List Example</title>
+  <style>
+    ul {
+      list-style-type: square;
+      color: darkblue;
+    }
+
+    ul ul {
+      list-style-type: circle;
+      color: darkgreen;
+    }
+
+    ul ul ul {
+      list-style-type: disc;
+      color: darkred;
+    }
+
+    a {
+      text-decoration: none;
+      color: blue;
+      font-weight: bold;
+    }
+
+    a:hover {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Nested List with Internal CSS</h2>
+
+  <ul>
+    <li>Item 1
+      <ul>
+        <li>Subitem 1.1
+          <ul>
+            <li>Sub-subitem 1.1.1</li>
+            <li>Sub-subitem 1.1.2</li>
+          </ul>
+        </li>
+        <li>Subitem 1.2</li>
+      </ul>
+    </li>
+    <li>Item 2</li>
+    <li><a href="#">Link 1</a></li>
+  </ul>
+
+</body>
+</html>
