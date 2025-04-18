@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Try-Catch Error Handling</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+      #output {
+        margin-top: 10px;
+        color: red;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Try-Catch Example</h2>
+    <button onclick="triggerError()">Trigger Error</button>
+    <div id="output"></div>
+
+    <script>
+      function triggerError() {
+        try {
+          notDefinedFunction();
+        } catch (error) {
+          document.getElementById("output").innerHTML =
+            "Error caught: " + error.message;
+        } finally {
+          const outputDiv = document.getElementById("output");
+          outputDiv.innerHTML += "<br> Finally block executed.";
+        }
+      }
+    </script>
+    <footer>
+      <br />
+      Name : Nirdesh Joshi <br />
+      Symbol Number: 79010499
+    </footer>
+  </body>
+</html>

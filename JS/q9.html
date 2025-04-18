@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Car Object Example</title>
+    <style>
+      #carInfo {
+        margin-top: 10px;
+        font-size: 1.2rem;
+        font-family: sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="updateCarBtn">Update Car</button>
+    <div id="carInfo"></div>
+
+    <script>
+      const car = {
+        make: "Toyota",
+        model: "Corolla",
+        year: 2020,
+        color: "blue",
+        updateCar: function (newMake, newModel, newYear, newColor) {
+          this.make = newMake;
+          this.model = newModel;
+          this.year = newYear;
+          this.color = newColor;
+        },
+        displayInfo: function () {
+          return `Make: ${this.make}, Model: ${this.model}, Year: ${this.year}, Color: ${this.color}`;
+        },
+      };
+
+      document
+        .getElementById("updateCarBtn")
+        .addEventListener("click", function () {
+          car.updateCar("Honda", "Civic", 2023, "red");
+          document.getElementById("carInfo").textContent = car.displayInfo();
+        });
+
+      document.getElementById("carInfo").textContent = car.displayInfo();
+    </script>
+
+    <footer>
+      <br />
+      Name : Nirdesh Joshi <br />
+      Symbol Number: 79010499
+    </footer>
+  </body>
+</html>
