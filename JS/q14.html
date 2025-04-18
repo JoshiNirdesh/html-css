@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>jQuery Mouse Events</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+      #circle {
+        width: 150px;
+        height: 150px;
+        background-color: salmon;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 150px;
+        font-size: 16px;
+        margin-bottom: 20px;
+      }
+      #status {
+        font-style: italic;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="circle">Mouse Events</div>
+    <p id="status">Watch for mouse actions.</p>
+
+    <script>
+      $(document).ready(function () {
+        $("#circle").mouseenter(function () {
+          $("#status").text("Mouse entered the circle.");
+        });
+
+        $("#circle").mouseleave(function () {
+          $("#status").text("Mouse left the circle.");
+        });
+
+        $("#circle").dblclick(function () {
+          $("#status").text("You double-clicked the circle!");
+        });
+      });
+    </script>
+
+    <footer>
+      <br />
+      Name : Nirdesh Joshi <br />
+      Symbol Number: 79010499
+    </footer>
+  </body>
+</html>

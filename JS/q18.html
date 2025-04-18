@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>jQuery Animation Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+      #box {
+        width: 100px;
+        height: 100px;
+        background-color: tomato;
+        position: relative;
+        margin: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box"></div>
+    <button id="animateBtn">Animate</button>
+
+    <script>
+      $(document).ready(function () {
+        $("#animateBtn").click(function () {
+          $("#box").animate(
+            {
+              left: "250px",
+              width: "200px",
+              height: "200px",
+              opacity: 0.5,
+            },
+            1000
+          );
+        });
+      });
+    </script>
+    <footer>
+      <br />
+      Name : Nirdesh Joshi <br />
+      Symbol Number: 79010499
+    </footer>
+  </body>
+</html>

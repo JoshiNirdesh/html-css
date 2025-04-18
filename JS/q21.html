@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Conditional Validation Form</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+      input,
+      select {
+        display: block;
+        margin-bottom: 10px;
+        padding: 5px;
+        width: 250px;
+      }
+      .error {
+        color: red;
+        font-size: 14px;
+      }
+      .valid {
+        color: green;
+        font-size: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Conditional Validation Form</h2>
+
+    <form id="myForm">
+      <select id="country">
+        <option value="">Select Country</option>
+        <option value="Nepal">Nepal</option>
+        <option value="India">India</option>
+        <option value="USA">USA</option>
+      </select>
+
+      <input type="text" id="postalCode" placeholder="Postal Code" />
+      <p id="postalCodeFeedback" class="error"></p>
+
+      <button type="submit">Submit</button>
+    </form>
+
+    <script>
+      $(document).ready(function () {
+        $("#myForm").submit(function (e) {
+          e.preventDefault();
+
+          var country = $("#country").val();
+          var postalCode = $("#postalCode").val().trim();
+          var postalCodeFeedback = $("#postalCodeFeedback");
+          var isValid = true;
+
+          if (country === "Nepal") {
+            var postalCodePattern = /^\d{5}$/;
+
+            if (!postalCodePattern.test(postalCode)) {
+              postalCodeFeedback.text(
+                "Postal code for Nepal must be exactly 5 digits."
+              );
+              postalCodeFeedback.addClass("error").removeClass("valid");
+              isValid = false;
+            } else {
+              postalCodeFeedback.text("Valid postal code.");
+              postalCodeFeedback.addClass("valid").removeClass("error");
+            }
+          } else {
+            postalCodeFeedback.text("");
+            postalCodeFeedback.removeClass("valid error");
+          }
+
+          if (isValid) {
+            alert("Form submitted successfully!");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

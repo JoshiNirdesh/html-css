@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Advanced Form Validation</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+      .error {
+        color: red;
+      }
+      .success {
+        color: green;
+      }
+      input {
+        display: block;
+        margin: 10px 0;
+        padding: 5px;
+        width: 250px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Registration Form</h2>
+
+    <form id="myForm">
+      <input type="text" id="name" placeholder="Name" />
+      <input type="text" id="email" placeholder="Email" />
+      <input type="password" id="password" placeholder="Password" />
+      <input
+        type="password"
+        id="confirmPassword"
+        placeholder="Confirm Password"
+      />
+      <input type="text" id="phone" placeholder="Phone (e.g., 9876543210)" />
+      <button type="submit">Submit</button>
+    </form>
+
+    <p id="message"></p>
+
+    <script>
+      $(document).ready(function () {
+        $("#myForm").submit(function (e) {
+          e.preventDefault();
+
+          var name = $("#name").val().trim();
+          var email = $("#email").val().trim();
+          var password = $("#password").val();
+          var confirmPassword = $("#confirmPassword").val();
+          var phone = $("#phone").val().trim();
+          var message = "";
+
+          // Email regex pattern
+          var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          // Phone number pattern (10 digits)
+          var phonePattern = /^\d{10}$/;
+
+          if (
+            name === "" ||
+            email === "" ||
+            password === "" ||
+            confirmPassword === "" ||
+            phone === ""
+          ) {
+            message = "All fields are required.";
+            $("#message")
+              .text(message)
+              .removeClass("success")
+              .addClass("error");
+          } else if (!emailPattern.test(email)) {
+            message = "Invalid email address.";
+            $("#message")
+              .text(message)
+              .removeClass("success")
+              .addClass("error");
+          } else if (password !== confirmPassword) {
+            message = "Passwords do not match.";
+            $("#message")
+              .text(message)
+              .removeClass("success")
+              .addClass("error");
+          } else if (!phonePattern.test(phone)) {
+            message = "Phone number must be 10 digits.";
+            $("#message")
+              .text(message)
+              .removeClass("success")
+              .addClass("error");
+          } else {
+            message = "Form submitted successfully!";
+            $("#message")
+              .text(message)
+              .removeClass("error")
+              .addClass("success");
+          }
+        });
+      });
+    </script>
+    <footer>
+      <br />
+      Name : Nirdesh Joshi <br />
+      Symbol Number: 79010499
+    </footer>
+  </body>
+</html>

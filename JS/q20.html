@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Real-time Form Validation</title>
+    <style>
+      input {
+        display: block;
+        margin-bottom: 10px;
+        padding: 5px;
+        width: 250px;
+      }
+      .error {
+        color: red;
+        font-size: 14px;
+      }
+      .valid {
+        color: green;
+        font-size: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Real-time Validation Form</h2>
+
+    <form id="myForm">
+      <input type="text" id="name" placeholder="Name (min 6 chars)" />
+      <input type="text" id="age" placeholder="Age (between 1 and 50)" />
+      <input type="text" id="phone" placeholder="Phone (start with 98 or 97)" />
+      <input type="text" id="email" placeholder="Email" />
+
+      <p id="nameFeedback" class="error"></p>
+      <p id="ageFeedback" class="error"></p>
+      <p id="phoneFeedback" class="error"></p>
+      <p id="emailFeedback" class="error"></p>
+    </form>
+
+    <script>
+      document.getElementById("name").addEventListener("input", function () {
+        var name = this.value.trim();
+        var feedback = document.getElementById("nameFeedback");
+
+        if (!/^[A-Za-z\s]{7,}$/.test(name)) {
+          feedback.textContent =
+            "Name must contain only letters & spaces and be at least 7 characters long.";
+          feedback.className = "error";
+        } else {
+          feedback.textContent = "Valid name!";
+          feedback.className = "valid";
+        }
+      });
+
+      document.getElementById("age").addEventListener("input", function () {
+        var age = this.value.trim();
+        var feedback = document.getElementById("ageFeedback");
+
+        if (!/^\d+$/.test(age) || age < 1 || age > 50) {
+          feedback.textContent = "Age must be a number between 1 and 50.";
+          feedback.className = "error";
+        } else {
+          feedback.textContent = "Valid age!";
+          feedback.className = "valid";
+        }
+      });
+
+      document.getElementById("phone").addEventListener("input", function () {
+        var phone = this.value.trim();
+        var feedback = document.getElementById("phoneFeedback");
+
+        if (!/^(98|97)\d{8}$/.test(phone)) {
+          feedback.textContent =
+            "Phone number must start with 98 or 97 and be 10 digits.";
+          feedback.className = "error";
+        } else {
+          feedback.textContent = "Valid phone number!";
+          feedback.className = "valid";
+        }
+      });
+
+      document.getElementById("email").addEventListener("input", function () {
+        var email = this.value.trim();
+        var feedback = document.getElementById("emailFeedback");
+
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+          feedback.textContent = "Please enter a valid email address.";
+          feedback.className = "error";
+        } else {
+          feedback.textContent = "Valid email!";
+          feedback.className = "valid";
+        }
+      });
+    </script>
+  </body>
+</html>

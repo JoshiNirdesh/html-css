@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>jQuery Effects Buttons</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+      #box {
+        width: 200px;
+        height: 150px;
+        background-color: lightgreen;
+        text-align: center;
+        line-height: 150px;
+        font-size: 20px;
+        margin: 20px auto;
+      }
+      .btn {
+        margin: 5px;
+        padding: 8px 16px;
+        font-size: 16px;
+        cursor: pointer;
+        display: block;
+        width: 120px;
+        text-align: center;
+      }
+      #buttons {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box">Box</div>
+
+    <div id="buttons">
+      <button class="btn" id="hideBtn">Hide</button>
+      <button class="btn" id="showBtn">Show</button>
+      <button class="btn" id="fadeBtn">Fade</button>
+      <button class="btn" id="slideBtn">Slide</button>
+    </div>
+
+    <script>
+      $(document).ready(function () {
+        $("#hideBtn").click(function () {
+          $("#box").hide();
+        });
+
+        $("#showBtn").click(function () {
+          $("#box").show();
+        });
+
+        $("#fadeBtn").click(function () {
+          $("#box").fadeToggle();
+        });
+
+        $("#slideBtn").click(function () {
+          $("#box").slideToggle();
+        });
+      });
+    </script>
+    <footer>
+      <br />
+      Name : Nirdesh Joshi <br />
+      Symbol Number: 79010499
+    </footer>
+  </body>
+</html>
