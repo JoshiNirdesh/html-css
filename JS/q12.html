@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple Cookie Example</title>
+  </head>
+  <body>
+    <input type="text" id="userInput" placeholder="Enter name" />
+    <button onclick="setCookie()">Set Cookie</button>
+    <button onclick="showCookie()">Show Cookie</button>
+
+    <p id="output"></p>
+
+    <script>
+      function setCookie() {
+        const value = document.getElementById("userInput").value;
+        document.cookie = "username=" + value;
+        document.getElementById("output").textContent = "Cookie set!";
+      }
+
+      function showCookie() {
+        const cookies = document.cookie;
+        document.getElementById("output").textContent =
+          "Stored cookies: " + cookies;
+      }
+    </script>
+    <footer>
+      <br />
+      Name : Nirdesh Joshi <br />
+      Symbol Number: 79010499
+    </footer>
+  </body>
+</html>

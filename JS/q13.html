@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple jQuery Selectors</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+    <p>This is a paragraph.</p>
+    <p class="myClass">This is a paragraph with a class.</p>
+    <p id="myId">This is a paragraph with an ID.</p>
+
+    <button>Click Me</button>
+
+    <script>
+      $(document).ready(function () {
+        $("button").click(function () {
+          $("p").css("color", "blue");
+          $(".myClass").text("Changed by class selector!");
+          $("#myId").text("Changed by ID selector!");
+        });
+      });
+    </script>
+    <footer>
+      <br />
+      Name : Nirdesh Joshi <br />
+      Symbol Number: 79010499
+    </footer>
+  </body>
+</html>
