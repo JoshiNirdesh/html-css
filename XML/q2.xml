@@ -1,0 +1,17 @@
+<school>
+    <student>
+        <name>Nirdesh</name>
+        <college_roll_no>12-00031-5</college_roll_no>
+        <tu_roll_no>28555/075</tu_roll_no>
+        <courses>
+            <course>
+                <course_name>Mathematics</course_name>
+                <course_code>MATH101</course_code>
+            </course>
+            <course>
+                <course_name>Computer Science</course_name>
+                <course_code>CS102</course_code>
+            </course>
+        </courses>
+    </student>
+</school>
